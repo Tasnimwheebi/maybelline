@@ -25,7 +25,7 @@ app.get('/search',(res,req)=>{
     superagent.get(url).then(data=>{
         let dataB = data.body;
         let dataD = dataB.map(val=>{
-            return new Maybelline (val);
+            return new Maybelline(val);
         });
        res.render('index',{dataArr:dataD});
     });
@@ -56,7 +56,7 @@ app.get('/myproducts',(req,res)=>{
     });
 });
 
-app.post('/details/:id',(req,res)=>{
+app.get('/details/:id',(req,res)=>{
     let SQL = `SELECT * FROM brand WHERE id=$1;`;
     let safeValue =[req.params.id];
     client.query(SQL,safeValue).then(results=>{
