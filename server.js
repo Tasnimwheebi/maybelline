@@ -17,25 +17,27 @@ app.get('/',(req,res)=>{
     res.render('index');
 });
 
-app.get('/search',(res,req)=>{
-    let priceGreater = req.query.priceGreater;
-    let priceLess = priceLess;
-    let brand = req.query.brand;
-    let url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&price_greater_than=${priceGreater}&price_less_than=${priceLess}`;
+app.post('/search',(req,res)=>{
+    let priceGreater = req.body.price_greater_than;
+    // console.log(req.body);
+    let priceLess = req.body.price_lower_than;
+    
+    let url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline&price_greater_than=${priceGreater}&price_less_than=${priceLess}`;
     superagent.get(url).then(data=>{
         let dataB = data.body;
-        let dataD = dataB.map(val=>{
-            return new Maybelline(val);
+        // console.log(dataB);
+        res.render('getResult',{dataArr:dataB});
         });
-       res.render('index',{dataArr:dataD});
+       
     });
-});
+
 
 
 app.get('/allproducts',(req,res)=>{
     let url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline`;
     superagent.get(url).then(data=>{
        let dataB = data.body;
+    //    console.log('TASNEEM',dataB);
         res.render('allproducts',{dataArr:dataB});
     });
 });
@@ -45,6 +47,7 @@ app.post('/addbrand',(req,res)=>{
     let SQL = `INSERT INTO brand (name,price,image_link,description) VALUES($1,$2,$3,$4) RETURNING *;`;
     let safeValue= [name,price,image_link,description];
     client.query(SQL,safeValue).then(results=>{
+        // console.log(results.rows);
         res.redirect('/myproducts');
     });
 });
@@ -52,6 +55,7 @@ app.post('/addbrand',(req,res)=>{
 app.get('/myproducts',(req,res)=>{
     let SQL = `SELECT * FROM brand;`;
     client.query(SQL).then(results=>{
+
         res.render('myproduct',{dataArr:results.rows});
     });
 });

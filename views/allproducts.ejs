@@ -4,27 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/base.css">
     <title>Document</title>
 </head>
 <body>
+  <%- include('header')  %> 
    <main>
+     <div class="allproducts">
     <% dataArr.forEach(data=>{ %>
+      <div class="cardProduct">
+        <div class="imgProduct">
         <img src="<%=data.image_link%>" alt="">
+        </div>
+        <div class="info-product">
         <h2><%=data.name%></h2>
-        <h3><%=data.price%></h3>
+        <h3><%=data.price%> $</h3>
         <p><%=data.description%></p>
 
       <form action="/addbrand" method="POST">
         <input type="hidden" name="image_link" value="<%=data.image_link%>">
         <input type="hidden" name="name" value="<%=data.name%>">
+        <input type="hidden" name="price" value="<%=data.price%>">
         <input type="hidden" name="description" value="<%=data.description%>">
         <button>Add to my Card</button>
     </form>
-        
-
-
-
+  </div>
+    </div>
    <% }) %>
+   </div>
    </main> 
 </body>
 </html>

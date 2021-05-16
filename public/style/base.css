@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    width: 960px;
+   
+    
+}
+header{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(0, 0, 12);
+
+}
+.logo {
+    width: 140px;
+}
+
+.links{
+   float: right; 
+   margin-top: 20px;
+   
+   
+}
+.links a {
+  text-decoration: none;  
+   margin: 10px;
+   font-size: 20px;
+}
+
+.heroImg{
+    width: 100%;
+    height: 290px;
+    background-image: url('../img/background.jpg');
+}
+.heroText{
+    color: white;
+    font-size: 60px;
+    margin-left: 30px;
+    padding-top: 30px;
+}
+
+.e-box{
+    text-align: center;
+    clear: both;
+    
+}
+.box {
+    margin-top: 20px;
+    width: 800px;
+     border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+     /* background-color: rgb(6, 0, 24); */
+    display: inline-block; 
+    padding-bottom: 20px;
+}
+
+
+.box input {
+     
+      color: rgba(15, 0, 56, 0.884);
+       font-size: 16px;
+       border: 1px solid rgba(15, 0, 56, 0.884);
+      height: 40px;
+  /* background: transparent; */
+    /* width: 100%;
+     outline: none;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  
+ 
+   */
+}
+.box button {
+    margin-left: 20px;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color:white;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+}
+.box button:hover{
+   background: #a0027e;
+color: #fff;
+border-radius: 5px;
+box-shadow: 0 0 5px #a0027e,
+            0 0 25px #a0027e,
+            0 0 50px #a0027e,
+            0 0 100px #a0027e;  
+}
+
+  
+.box button {
+    top: -100%;
+    right: 0;
+    /* width: 2px; */
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #a0027e);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+  }
+  
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+    50%,100% {
+      top: 100%;
+    }
+  }
+
+
+
+
+/* getResult page */
+
+.wrapper{
+    margin-top: 20px;
+     position: absolute;
+    text-align: center;
+    padding-left: 10px;
+    width:71%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+.card{
+    /* flex: 1;
+    flex-basis: 30px;
+    flex-grow: 0; */
+    height: 300px;
+    background: #fff;
+    border: 2px solid #fff;
+    box-shadow: 0px 4px 7px rgba(0,0,0,.5);
+    cursor: pointer;
+    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+    overflow: hidden;
+    position: relative;
+}
+.card img{
+    padding-top: 50px;
+    /* width: 100%; */
+    height:100%;
+    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+}
+.descriptions{
+    position: absolute;
+    top:0px;
+    left:0px;
+    background-color: rgba(255,255,255,.7);
+    width:100%;
+    height:100%;
+    transition: all 1s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
+    clip-path: circle(0% at 100% 100%);
+}
+.card:hover .descriptions{
+    left:0px;
+    transition: all 1.2s ease-in-out;
+    clip-path: circle(75%);
+    overflow: scroll;
+}
+.card:hover{
+    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+    box-shadow: 0px 2px 3px rgba(0,0,0,.3);
+    transform: scale(.97);
+}
+.card:hover img{
+    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+    transform: scale(1.6) rotate(20deg);
+    filter: blur(3px);
+}
+.card h2{
+    font-weight: bolder;
+    letter-spacing: 1px;
+   
+}
+.card h3 {
+    /* font-weight: bold; */
+    font-family: fantasy;
+}
+.card p{
+    line-height: 24px;
+    height: 70%;
+}
+
+/* allproducts page */
+
+.cardProduct {
+    background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	display: flex;
+	max-width: 100%;
+	margin: 20px;
+	overflow: hidden;
+	width: 800px;
+}
+.imgProduct {
+    max-width: 350px;
+    padding: 20px;
+}
+.info-product{
+    padding: 20px;
+	position: relative;
+	width: 100%;
+    line-height: 22px;
+  
+}
+.cardProduct h2 {
+  color:#2A265F ;
+  font-weight: bolder; 
+  font-size: larger; 
+  font-family: 'Muli', sans-serif;
+}
+.cardProduct h3 {
+    font-family: fantasy;
+}
+
+.cardProduct button {
+    background-color: #2A265F;
+	border: 0;
+	border-radius: 50px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	font-size: 16px;
+	padding: 12px 25px;
+	/* position: absolute; */
+	bottom: 30px;
+	right: 30px;
+	letter-spacing: 1px;
+    cursor:pointer;
+    float:right ;
+}
+
+
+
+/* my product */
+
+.myrecords {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.myrecordcard {
+    background-color: #231E39;
+	border-radius: 5px;
+	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+	color: #B3B8CD;
+	padding-top: 30px;
+	position: relative;
+	width: 300px;
+	max-width: 100%;
+	text-align: center;
+}
+.myrecordcard h2 {
+    margin: 5px 5px 5px;
+}
+.myrecordcard img{
+    border: 1px solid #03BFCB;
+	border-radius: 50%;
+	padding: 7px;
+}
+
+ .detailBt{
+    background-color: transparent;
+	color: #02899C;
+    border: 1px solid #02899C;
+    width: 100px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+.deleteBt {
+    background-color: #03BFCB;
+	border: 1px solid #03BFCB;
+	border-radius: 3px;
+	color: #231E39;
+	font-family: Montserrat, sans-serif;
+	font-weight: 500;
+	padding: 10px 25px;
+    margin-bottom: 10px;
+    width: 100px;
+}

@@ -4,25 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/base.css">
     <title>Home</title>
 </head>
 <body>
+
+  
+    <%- include('header')  %> 
     <main>
-        <a href="/allproducts">Maybelline</a>
-        <form action="/search">
-            <input type="text" name="brand" placeholder="Enter name of brand">
-            <input type="number" name="priceGreater" value="priceGreater">
-            <input type="number" name="priceLess" value="priceLess">
-            <button>Get</button>
-        </form>
+    <div class="heroImg">
+        
+   </div>
+    
+        <div class="e-box">
+       <div class="box">
 
-        <% dataArr.forEach(data=>{ %>
-            <img src="<%=data.image_link%>" alt="">
-            <h2><%=data.name%></h2>
-            <h3><%=data.price%></h3>
-            <p><%=data.description%></p>
-
-       <% }) %>
+        <form action="/search" method="post">
+            <div class="input-box">
+            <input type="text" name="brand"  placeholder="Add brand Name">
+            <input type="number" name="price_greater_than" value="price_greater_than" placeholder="price greater than">
+            <input type="number" name="price_lower_than" value="price_lower_than" placeholder="price lower than">
+            <button> <div class="textButton"> GET! </div></button>
+            </div>
+        </div>
+    </div>
+ 
     </main>
 </body>
 </html>

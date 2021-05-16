@@ -4,21 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/base.css">
     <title>Document</title>
 </head>
 <body>
+    <%- include('header')  %> 
     <main>
-        
+        <div class="myrecords"> 
         <% dataArr.forEach(data=>{ %>
+            <div class="myrecordcard"> 
             <img src="<%=data.image_link%>" alt="">
             <h2><%=data.name%></h2>
-            <h3><%=data.price%></h3>
-            <p><%=data.description%></p>
+            <h3><%=data.price%> $</h3>
+            
             <form action="/details/<%=data.id%>" >
-                <button>View Details</button>
+                <button class="detailBt">View Details</button>
             </form>
-
+            <form action="/delete/<%=data.id%> ?_method=delete" method="POST">
+                <button class="deleteBt">Delete</button> 
+                </form>
+             </div>
        <% }) %>
+       </div>
     </main>
 </body>
 </html>
